@@ -40,7 +40,7 @@ R11 = "IF (G IS wet) AND (T IS hot) THEN (w IS average)" # 만약 땅의 수분�
 R12 = "IF (G IS wet) AND (T IS warm) THEN (w IS a little)" # 만약 땅의 수분이 축축하고 온도가 따뜻하면 물을 적게 뿌린다.
 R13 = "IF (G IS wet) AND (T IS average) THEN (w IS a little)"  # 만약 땅의 수분이 축축하고 온도가 보통이면 물을 적게 뿌린다.
 R14 = "IF (G IS wet) AND (T IS cool) THEN (w IS little)" # 만약 땅의 수분이 축축하고 온도가 시원하면 물을 매우 적게 뿌린다.
-FS.add_rules([R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14])
+FS.add_rules([R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14]) # 규칙 1~14번 추가
 
 # 입력받기
 FS.set_variable("G", float(input("땅의 수분기(%): "))) # 땅의 수분기 입력 받기 (%)
