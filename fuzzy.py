@@ -1,6 +1,135 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# 소속함수 표현 이미지
+# 입력 1 : 땅의 수분기 (%)
+# dry 함수
+plt.hlines(1,0,25,'b')
+x1=np.linspace(25,37.5,30)
+fx1=-0.08*x1+3
+plt.plot(x1,fx1,'b')
+plt.text(10,1.01,'dry')
+
+# average 함수
+x2=np.linspace(25,50,30)
+fx2=0.04*x2-1
+plt.plot(x2,fx2,'b')
+
+x3=np.linspace(50,75,30)
+fx3=-0.04*x3+3
+plt.plot(x3,fx3,'b')
+plt.text(43,1.01,'average')
+
+# wet 함수
+x4=np.linspace(62.5,75,30)
+fx4=0.08*x4-5
+plt.plot(x4,fx4,'b')
+plt.hlines(1,75,100,'b')
+plt.text(85,1.01,'wet')
+
+plt.title('Moisture of the ground', size=15)
+plt.xlabel('%',loc='right')
+
+plt.show()
+
+
+# 입력 2 : 화씨 온도 (°F)
+# cold 함수
+x1=np.linspace(0,50,50)
+fx1=-(1/50)*x1+1
+plt.plot(x1,fx1,'b')
+plt.text(1,1.01,'cold')
+
+# cool 함수
+x2=np.linspace(0,55,50)
+fx2=(1/55)*x2
+plt.plot(x2,fx2,'b')
+
+x3=np.linspace(55,65,50)
+fx3=-(1/10)*x3+(65/10)
+plt.plot(x3,fx3,'b')
+plt.text(52,1.01,'cool')
+
+# average 함수
+x4=np.linspace(60,65,50)
+fx4=(1/5)*x4-12
+plt.plot(x4,fx4,'b')
+
+x5=np.linspace(65,70,50)
+fx5=-(1/5)*x5+14
+plt.plot(x5,fx5,'b')
+plt.text(59,1.01,'average')
+
+#warm 함수
+x6=np.linspace(65,75,50)
+fx6=(1/10)*x6-6.5
+plt.plot(x6,fx6,'b')
+
+x7=np.linspace(75,85,50)
+fx7=-0.1*x7+8.5
+plt.plot(x7,fx7,'b')
+plt.text(72,1.01,'warm')
+
+#hot함수
+x8=np.linspace(80,90,50)
+fx8=0.1*x8-8
+plt.plot(x8,fx8,'b')
+plt.text(87,1.01,'hot')
+
+plt.title('Temperature', size=15)
+plt.xlabel('°  F',loc='right')
+
+plt.show()
+
+
+# 출력 : 물의 양 (L)
+# little 함수
+x1=np.linspace(0,100,100)
+fx1=-0.01*x1+1
+plt.plot(x1,fx1,'b')
+plt.text(0.2,1.01,'little')
+
+# a little 함수
+x2=np.linspace(50,125,100)
+fx2=(1/75)*x2-(50/75)
+plt.plot(x2,fx2,'b')
+
+x3=np.linspace(125,200,100)
+fx3=-(1/75)*x3+(200/75)
+plt.plot(x3,fx3,'b')
+plt.text(102,1.01,'a little')
+
+# average 함수
+x4=np.linspace(150,225,100)
+fx4=(1/75)*x4-(150/75)
+plt.plot(x4,fx4,'b')
+
+x5=np.linspace(225,300,100)
+fx5=-(1/75)*x5+(300/75)
+plt.plot(x5,fx5,'b')
+plt.text(200,1.01,'average')
+
+# much 함수
+x6=np.linspace(250,325,100)
+fx6=(1/75)*x6-(250/75)
+plt.plot(x6,fx6,'b')
+
+x7=np.linspace(325,400,100)
+fx7=-(1/75)*x7+(400/75)
+plt.plot(x7,fx7,'b')
+plt.text(305,1.01,'much')
+
+# very much 함수
+x8=np.linspace(350,425,100)
+fx8=(1/75)*x8-(350/75)
+plt.plot(x8,fx8,'b')
+plt.text(370,1.01,'very much')
+
+plt.title('Amount of Water', size=15)
+plt.xlabel('L',loc='right')
+
+plt.show()
+
 # Simpful 라이브러리를 사용하여 데이터에서 퍼지 모델을 추정할 수 있음
 from simpful import *
 
@@ -51,120 +180,3 @@ FS.set_variable("T", float(input("화씨 온도(°F): "))) # 화씨 온도 입�
 
 # 출력하기(Mamdani st)
 print(FS.Mamdani_inference(["w"])) # 물의 양 출력 하기 (L)
-
-
-# 소속함수 표현 이미지
-# 입력 1 : 땅의 수분기 (%)
-# dry 함수
-plt.hlines(1,0,25,'b')
-x1=np.linspace(25,37.5,30)
-fx1=-0.08*x1+3
-plt.plot(x1,fx1,'b')
-
-# average 함수
-x2=np.linspace(25,50,30)
-fx2=0.04*x2-1
-plt.plot(x2,fx2,'b')
-
-x3=np.linspace(50,75,30)
-fx3=-0.04*x3+3
-plt.plot(x3,fx3,'b')
-
-# wet 함수
-x4=np.linspace(62.5,75,30)
-fx4=0.08*x4-5
-plt.plot(x4,fx4,'b')
-plt.hlines(1,75,100,'b')
-
-plt.title('Ground Humidity', size=15)
-plt.xlabel('%',loc='right')
-
-plt.show()
-
-
-# 입력 2 : 화씨 온도 (°F)
-# cold 함수
-x1=np.linspace(0,50,50)
-fx1=-(1/50)*x1+1
-plt.plot(x1,fx1,'b')
-
-# cool 함수
-x2=np.linspace(0,55,50)
-fx2=(1/55)*x2
-plt.plot(x2,fx2,'b')
-
-x3=np.linspace(55,65,50)
-fx3=-(1/10)*x3+(65/10)
-plt.plot(x3,fx3,'b')
-
-# average 함수
-x4=np.linspace(60,65,50)
-fx4=(1/5)*x4-12
-plt.plot(x4,fx4,'b')
-
-x5=np.linspace(65,70,50)
-fx5=-(1/5)*x5+14
-plt.plot(x5,fx5,'b')
-
-#warm 함수
-x6=np.linspace(65,75,50)
-fx6=(1/10)*x6-6.5
-plt.plot(x6,fx6,'b')
-
-x7=np.linspace(75,85,50)
-fx7=-0.1*x7+8.5
-plt.plot(x7,fx7,'b')
-
-#hot함수
-x8=np.linspace(80,90,50)
-fx8=0.1*x8-8
-plt.plot(x8,fx8,'b')
-
-plt.title('Temperature', size=15)
-plt.xlabel('°  F',loc='right')
-
-plt.show()
-
-
-# 출력 : 물의 양 (L)
-# little 함수
-x1=np.linspace(0,100,100)
-fx1=-0.01*x1+1
-plt.plot(x1,fx1,'b')
-
-# a little 함수
-x2=np.linspace(50,125,100)
-fx2=(1/75)*x2-(50/75)
-plt.plot(x2,fx2,'b')
-
-x3=np.linspace(125,200,100)
-fx3=-(1/75)*x3+(200/75)
-plt.plot(x3,fx3,'b')
-
-# average 함수
-x4=np.linspace(150,225,100)
-fx4=(1/75)*x4-(150/75)
-plt.plot(x4,fx4,'b')
-
-x5=np.linspace(225,300,100)
-fx5=-(1/75)*x5+(300/75)
-plt.plot(x5,fx5,'b')
-
-# much 함수
-x6=np.linspace(250,325,100)
-fx6=(1/75)*x6-(250/75)
-plt.plot(x6,fx6,'b')
-
-x7=np.linspace(325,400,100)
-fx7=-(1/75)*x7+(400/75)
-plt.plot(x7,fx7,'b')
-
-# very much 함수
-x8=np.linspace(350,425,100)
-fx8=(1/75)*x8-(350/75)
-plt.plot(x8,fx8,'b')
-
-plt.title('Amount of Water', size=15)
-plt.xlabel('L',loc='right')
-
-plt.show()
